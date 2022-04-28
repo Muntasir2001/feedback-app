@@ -8,8 +8,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Feedback App</title>
-				<link rel='icon' href='/feedback.svg' />
+				<title>Feedback | Home</title>
 			</Head>
 			<FeedbackFormSection />
 		</>

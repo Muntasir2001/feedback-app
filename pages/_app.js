@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import { createGlobalStyle } from 'styled-components';
 import '../styles/globals.css';
 
@@ -17,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
+			<Head>
+				<link rel='icon' href='/feedback.svg' />
+			</Head>
 			<GlobalStyle />
 			<Component {...pageProps} />
 		</>
