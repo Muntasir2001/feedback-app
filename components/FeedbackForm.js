@@ -11,8 +11,8 @@ const Parent = styled.div`
 		flex-direction: column;
 		padding: 25px;
 
-		input {
-			padding: 12px 8px;
+		input[type='text'] {
+			padding: 12px 10px;
 			margin-bottom: 18px;
 			background-color: var(--tertiary-color);
 			border: 0;
@@ -23,7 +23,7 @@ const Parent = styled.div`
 
 		select {
 			margin-bottom: 18px;
-			padding: 12px 8px;
+			padding: 12px 10px;
 			border: 0;
 			border-radius: 5px;
 			background-color: var(--tertiary-color);
@@ -35,12 +35,27 @@ const Parent = styled.div`
 			background-color: var(--tertiary-color);
 			border: 0;
 			border-radius: 5px;
-			padding: 12px 8px;
+			padding: 12px 10px;
 			color: var(--white-color);
 			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 				Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 				sans-serif;
 			width: var(--width);
+		}
+
+		input[type='submit'] {
+			padding: 12px 8px;
+			margin-top: 25px;
+			background-color: var(--primary-color);
+			border: 0;
+			border-radius: 5px;
+			color: var(--white-color);
+			width: var(--width);
+
+			&:hover {
+				cursor: pointer;
+				filter: brightness(0.95);
+			}
 		}
 	}
 `;
@@ -64,6 +79,7 @@ const FeedbackForm = () => {
 						rows='10'
 						placeholder='Message'
 					></textarea>
+					<input type='submit' name='submit' value='Submit' />
 				</form>
 			</Parent>
 		</>
