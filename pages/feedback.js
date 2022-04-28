@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import styled from 'styled-components';
 
+import FeedbackStatusCard from '../components/FeedbackStatusCard';
+
 const Parent = styled.div`
 	height: 100vh;
 	display: flex;
@@ -67,13 +69,17 @@ const FeedbackPage = () => {
 							<td>jon don</td>
 							<td>email@email.com</td>
 							<td>Lorem ipsum dolor sitsdf.</td>
-							<td>compalin</td>
+							<td>
+								<FeedbackStatusCard type='issue' />
+							</td>
 						</tr>
 						<tr>
 							<td>jon don</td>
 							<td>email@email.com</td>
 							<td>Lorem ipsum dolor sitsdf.</td>
-							<td>compalin</td>
+							<td>
+								<FeedbackStatusCard type='feedback' />
+							</td>
 						</tr>
 					</tbody>
 				</table>
