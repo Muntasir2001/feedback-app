@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import FeedbackStatusCard from '../components/FeedbackStatusCard';
+import { feedback } from '../data/feedback';
 
 const Parent = styled.div`
 	height: 100vh;
@@ -65,22 +66,18 @@ const FeedbackPage = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>jon don</td>
-							<td>email@email.com</td>
-							<td>Lorem ipsum dolor sitsdf.</td>
-							<td>
-								<FeedbackStatusCard type='issue' />
-							</td>
-						</tr>
-						<tr>
-							<td>jon don</td>
-							<td>email@email.com</td>
-							<td>Lorem ipsum dolor sitsdf.</td>
-							<td>
-								<FeedbackStatusCard type='feedback' />
-							</td>
-						</tr>
+						{feedback.map((data) => {
+							return (
+								<tr key={data.id}>
+									<td>{data.name}</td>
+									<td>{data.email}</td>
+									<td>{data.message}</td>
+									<td>
+										<FeedbackStatusCard type={data.feedbackType} />
+									</td>
+								</tr>
+							);
+						})}
 					</tbody>
 				</table>
 			</Parent>

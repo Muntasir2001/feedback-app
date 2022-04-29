@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Parent = styled.div`
 	--width: 18rem;
@@ -77,6 +78,7 @@ const FeedbackForm = () => {
 	return (
 		<>
 			<Parent>
+				<Toaster />
 				<form className='feedback-form' onSubmit={handleSubmit(onSubmit)}>
 					<input
 						type='text'
