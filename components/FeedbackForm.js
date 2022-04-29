@@ -70,9 +70,34 @@ const FeedbackForm = () => {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = (data) => {
-		// handle prisma
+	const create = async (data) => {
 		console.log(data);
+		try {
+			await fetch('http://localhost:3000/api/create', {
+				body: JSON.stringify(data),
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			toast.error(error);
+		}
+	};
+
+	const onSubmit = (data) => {
+		toast.promise(
+			create(data),
+			{
+				loading: 'Working on it',
+				success: 'Feedback submitted successfully',
+				error: 'Ooops!! Something went wrong',
+			},
+			{
+				duration: 3000,
+			},
+		);
 	};
 
 	return (
@@ -87,7 +112,12 @@ const FeedbackForm = () => {
 						{...register('fullName', { required: true })}
 						required
 					/>
-					<input type='text' name='email' placeholder='Email' />
+					<input
+						type='text'
+						name='email'
+						placeholder='Email'
+						{...register('email', { required: true })}
+					/>
 					<select
 						name='feedback-type'
 						id='feedback-type'
