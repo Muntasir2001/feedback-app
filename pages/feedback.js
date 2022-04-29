@@ -55,7 +55,7 @@ const FeedbackPage = () => {
 				<title>Feedbacks</title>
 			</Head>
 			<Parent>
-				<h1>Feedback</h1>
+				<h1>Feedbacks</h1>
 				<table>
 					<thead>
 						<tr>
