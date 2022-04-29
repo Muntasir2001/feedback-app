@@ -3,7 +3,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import FeedbackStatusCard from '../components/FeedbackStatusCard';
-import { feedback } from '../data/feedback';
+import prisma from '../lib/prisma';
+// import { feedback } from '../data/feedback';
 
 const Parent = styled.div`
 	height: 100vh;
@@ -48,7 +49,7 @@ const Parent = styled.div`
 	}
 `;
 
-const FeedbackPage = () => {
+const FeedbackPage = ({ feedback }) => {
 	return (
 		<>
 			<Head>
@@ -69,7 +70,7 @@ const FeedbackPage = () => {
 						{feedback.map((data) => {
 							return (
 								<tr key={data.id}>
-									<td>{data.name}</td>
+									<td>{data.fullName}</td>
 									<td>{data.email}</td>
 									<td>{data.message}</td>
 									<td>
@@ -86,3 +87,19 @@ const FeedbackPage = () => {
 };
 
 export default FeedbackPage;
+
+export const getServerSideProps = async () => {
+	const feedback = await prisma.feedback.findMany({
+		select: {
+			message: true,
+			id: true,
+			feedbackType: true,
+			fullName: true,
+			email: true,
+		},
+	});
+
+	return {
+		props: { feedback },
+	};
+};

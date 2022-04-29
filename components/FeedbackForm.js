@@ -21,6 +21,15 @@ const Parent = styled.div`
 			border-radius: 5px;
 			color: var(--white-color);
 			width: var(--width);
+
+			&:-webkit-autofill,
+			&:-webkit-autofill:focus {
+				transition: background-color 600000s 0s, color 600000s 0s;
+			}
+		}
+
+		input[data-autocompleted] {
+			background-color: transparent !important;
 		}
 
 		select {
@@ -71,7 +80,6 @@ const FeedbackForm = () => {
 	} = useForm();
 
 	const create = async (data) => {
-		console.log(data);
 		try {
 			await fetch('http://localhost:3000/api/create', {
 				body: JSON.stringify(data),
@@ -95,7 +103,7 @@ const FeedbackForm = () => {
 				error: 'Ooops!! Something went wrong',
 			},
 			{
-				duration: 3000,
+				duration: 8000,
 			},
 		);
 	};

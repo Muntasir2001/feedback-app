@@ -3,8 +3,6 @@ import prisma from '../../lib/prisma';
 export default async function handler(req, res) {
 	const { fullName, email, feedbackType, message } = req.body;
 
-	console.log(req.body);
-
 	try {
 		const feedback = await prisma.feedback.create({
 			data: {
