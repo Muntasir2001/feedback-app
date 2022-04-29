@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useForm } from 'react-hook-form';
 
 const Parent = styled.div`
 	--width: 18rem;
@@ -41,6 +42,7 @@ const Parent = styled.div`
 				Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 				sans-serif;
 			width: var(--width);
+			resize: none;
 		}
 
 		input[type='submit'] {
@@ -61,13 +63,36 @@ const Parent = styled.div`
 `;
 
 const FeedbackForm = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	const onSubmit = (data) => {
+		// handle prisma
+		console.log(data);
+	};
+
 	return (
 		<>
 			<Parent>
-				<form className='feedback-form'>
-					<input type='text' name='full-name' placeholder='Full name' />
+				<form className='feedback-form' onSubmit={handleSubmit(onSubmit)}>
+					<input
+						type='text'
+						name='full-name'
+						placeholder='Full name'
+						{...register('fullName', { required: true })}
+						required
+					/>
 					<input type='text' name='email' placeholder='Email' />
-					<select name='feedback-type' id=''>
+					<select
+						name='feedback-type'
+						id='feedback-type'
+						defaultValue='feedback'
+						{...register('feedbackType', { required: true })}
+						required
+					>
 						<option value='feedback'>Feedback</option>
 						<option value='issue'>Issue</option>
 						<option value='idea'>Idea</option>
@@ -76,8 +101,9 @@ const FeedbackForm = () => {
 						name='message'
 						id='message'
 						cols='30'
-						rows='10'
+						rows='4'
 						placeholder='Message'
+						{...register('message', { required: true })}
 					></textarea>
 					<input type='submit' name='submit' value='Submit' />
 				</form>
