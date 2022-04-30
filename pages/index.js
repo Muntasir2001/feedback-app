@@ -18,21 +18,9 @@ export default function Home(props) {
 Home.getInitialProps = async ({ req }) => {
 	let fullUrl;
 
-	// if (req) {
-	// 	// Server side rendering
-	// 	fullUrl = req.headers.referer;
-	// } else {
-	// 	// Client side rendering
-	// 	fullUrl =
-	// 		window.location.protocol +
-	// 		'//' +
-	// 		window.location.hostname +
-	// 		(window.location.port ? ':' + window.location.port : '');
-	// }
-
 	if (req) {
 		// Server side rendering
-		fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+		fullUrl = req.headers.referer;
 	} else {
 		// Client side rendering
 		fullUrl =
@@ -42,6 +30,19 @@ Home.getInitialProps = async ({ req }) => {
 			(window.location.port ? ':' + window.location.port : '');
 	}
 
+	// if (req) {
+	// 	// Server side rendering
+	// 	fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+	// } else {
+	// 	// Client side rendering
+	// 	fullUrl =
+	// 		window.location.protocol +
+	// 		'//' +
+	// 		window.location.hostname +
+	// 		(window.location.port ? ':' + window.location.port : '');
+	// }
+
+	console.log(req);
 	console.log(fullUrl);
 
 	return { fullUrl: fullUrl };
