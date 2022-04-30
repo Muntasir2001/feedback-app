@@ -12,13 +12,11 @@ const Parent = styled.div`
 `;
 
 const FeedbackFormSection = (props) => {
-	const { fullUrl } = props;
-
 	return (
 		<>
 			<Parent>
 				<FeedbackFormTitle />
-				<FeedbackForm fullUrl={fullUrl} />
+				<FeedbackForm />
 			</Parent>
 		</>
 	);

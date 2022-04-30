@@ -1,5 +1,5 @@
 // import { useEffect } from 'react';
-import { withRouter, useRouter } from 'next/router';
+// import { withRouter, useRouter } from 'next/router';
 
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
@@ -76,10 +76,6 @@ const Parent = styled.div`
 `;
 
 const FeedbackForm = (props) => {
-	const { fullUrl } = props;
-
-	const router = useRouter();
-
 	const {
 		register,
 		handleSubmit,
@@ -88,7 +84,7 @@ const FeedbackForm = (props) => {
 
 	const create = async (data) => {
 		try {
-			await fetch(`${fullUrl}api/create`, {
+			await fetch(`/api/create`, {
 				body: JSON.stringify(data),
 				method: 'POST',
 				headers: {
