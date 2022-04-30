@@ -72,7 +72,9 @@ const Parent = styled.div`
 	}
 `;
 
-const FeedbackForm = () => {
+const FeedbackForm = (props) => {
+	const { fullUrl } = props;
+
 	const {
 		register,
 		handleSubmit,
@@ -81,7 +83,7 @@ const FeedbackForm = () => {
 
 	const create = async (data) => {
 		try {
-			await fetch('http://localhost:3000/api/create', {
+			await fetch(`${fullUrl}api/create`, {
 				body: JSON.stringify(data),
 				method: 'POST',
 				headers: {

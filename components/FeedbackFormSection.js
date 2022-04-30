@@ -11,12 +11,14 @@ const Parent = styled.div`
 	height: 100vh;
 `;
 
-const FeedbackFormSection = () => {
+const FeedbackFormSection = (props) => {
+	const { fullUrl } = props;
+
 	return (
 		<>
 			<Parent>
 				<FeedbackFormTitle />
-				<FeedbackForm />
+				<FeedbackForm fullUrl={fullUrl} />
 			</Parent>
 		</>
 	);
