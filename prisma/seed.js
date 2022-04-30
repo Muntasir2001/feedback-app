@@ -1,10 +1,12 @@
-import pkg from '@prisma/client';
+// import pkg from '@prisma/client';
 
-const { PrismaClient } = pkg;
+// const { PrismaClient } = pkg;
+
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-export const main = async () => {
+const main = async () => {
 	await prisma.feedback.create({
 		data: {
 			fullName: 'an example fullname',
