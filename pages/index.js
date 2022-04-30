@@ -42,8 +42,8 @@ Home.getInitialProps = async ({ req }) => {
 	// 		(window.location.port ? ':' + window.location.port : '');
 	// }
 
-	console.log(req);
-	console.log(fullUrl);
+	// console.log(req.baseUrl);
+	// console.log(fullUrl);
 
 	return { fullUrl: fullUrl };
 };
