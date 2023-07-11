@@ -4,22 +4,29 @@ import styled from 'styled-components';
 
 import FeedbackStatusCard from '../components/FeedbackStatusCard';
 import prisma from '../lib/prisma';
-// import { feedback } from '../data/feedback';
+import { feedback } from '../data/feedback';
 
 const Parent = styled.div`
 	height: 100vh;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	padding: 100px;
 
 	h1 {
 		color: var(--white-color);
 		text-align: left;
 	}
 
-	table {
+	.table-div {
 		margin-top: 20px;
+		overflow-y: scroll;
+	}
+
+	table {
 		max-width: 70rem;
 		border-spacing: 0;
 
@@ -49,7 +56,9 @@ const Parent = styled.div`
 	}
 `;
 
-const FeedbackPage = ({ feedback }) => {
+const FeedbackPage = (props) => {
+	// const { feedback } = props
+
 	return (
 		<>
 			<Head>
@@ -57,30 +66,32 @@ const FeedbackPage = ({ feedback }) => {
 			</Head>
 			<Parent>
 				<h1>Feedbacks</h1>
-				<table>
-					<thead>
-						<tr>
-							<th scope='col'>Name</th>
-							<th scope='col'>Email</th>
-							<th scope='col'>Message</th>
-							<th scope='col'>Feedback Type</th>
-						</tr>
-					</thead>
-					<tbody>
-						{feedback.map((data) => {
-							return (
-								<tr key={data.id}>
-									<td>{data.fullName}</td>
-									<td>{data.email}</td>
-									<td>{data.message}</td>
-									<td>
-										<FeedbackStatusCard type={data.feedbackType} />
-									</td>
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
+				<div className='table-div'>
+					<table>
+						<thead>
+							<tr>
+								<th scope='col'>Name</th>
+								<th scope='col'>Email</th>
+								<th scope='col'>Message</th>
+								<th scope='col'>Feedback Type</th>
+							</tr>
+						</thead>
+						<tbody>
+							{feedback.map((data) => {
+								return (
+									<tr key={data.id}>
+										<td>{data.fullName}</td>
+										<td>{data.email}</td>
+										<td>{data.message}</td>
+										<td>
+											<FeedbackStatusCard type={data.feedbackType} />
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
 			</Parent>
 		</>
 	);
