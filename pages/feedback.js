@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import FeedbackStatusCard from '../components/FeedbackStatusCard';
 import prisma from '../lib/prisma';
-import { feedback } from '../data/feedback';
+// import { feedback } from '../data/feedback';
 
 const Parent = styled.div`
 	height: 100vh;
@@ -57,7 +57,7 @@ const Parent = styled.div`
 `;
 
 const FeedbackPage = (props) => {
-	// const { feedback } = props
+	const { feedback } = props;
 
 	return (
 		<>
