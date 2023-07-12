@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Parent = styled.div`
 	color: var(--white-color);
+	text-align: center;
 `;
 
 const FeedbackFormTitle = () => {
