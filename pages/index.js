@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import FeedbackFormSection from '../components/form/FeedbackFormSection';
-import Header from '../components/header';
+import Header from '../components/Header';
 import styled from 'styled-components';
 import Link from 'next/link';
 
