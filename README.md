@@ -1,6 +1,6 @@
 # Feedbackly
 
-## URLs
+## URLs
 
 **URL:** https://feedbackly.noobdev54.com/
 
