@@ -62,7 +62,7 @@ const FeedbackPage = (props) => {
 	return (
 		<>
 			<Head>
-				<title>Feedbacks</title>
+				<title>Feedbackly | Feedbacks</title>
 			</Head>
 			<Parent>
 				<h1>Feedbacks</h1>
