@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-import FeedbackFormSection from '../components/FeedbackFormSection';
+import FeedbackFormSection from '../components/form/FeedbackFormSection';
+import Header from '../components/header';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -28,9 +29,10 @@ export default function Home(props) {
 	return (
 		<>
 			<Head>
-				<title>Feedback | Home</title>
+				<title>Feedbackly | Home</title>
 			</Head>
 			<Parent>
+				<Header />
 				<FeedbackFormSection />
 				<div className='all-feedback-link-div'>
 					<p>
